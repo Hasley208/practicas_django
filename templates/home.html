@@ -5,7 +5,7 @@
 - Font: playfairDisplay
 - Mode: light
 - Roundness: rounded-md
-. The logo should be visually consistent with these brand tokens." class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Uqv1VSRtH-f8v2JdsoV_-xJqfy3_6_3L6S5Hz_NUAvKlDhZ0hfcCQmLgsuQpLvUuUSvd7IYfgcL-HyUj1ryHXmJkld-VU6qetSQnEfqZaFhJP-PHr2VWkxoR18be-1XL890Ev9gJS0Z810qHlgE1YLSMMbmAtiRKxEEXdENZYemNX5DCj-FFI7Ttd29WEGxHfHDaNhZp1w1_Lv500_ubJ0dgB17A7C4GGxka-fvgO-zacHyDGi8XF_8sIs"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary-container leading-none tracking-tight">Café Atelier</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Inicio</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Notificaciones" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 bg-secondary text-on-secondary font-label-sm text-[10px] rounded-full flex items-center justify-center font-bold">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-space-md space-y-space-lg">
+<div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary-container leading-none tracking-tight">Café Atelier</span><span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Inicio</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar" class="w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">search</span></button><button aria-label="Notificaciones" class="relative w-11 h-11 flex items-center justify-center rounded-full text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-2 right-2 w-4 h-4 bg-secondary text-on-secondary font-label-sm text-[10px] rounded-full flex items-center justify-center font-bold">3</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-space-md space-y-space-lg">
 <!-- 1. Perfil & Estado de Catador -->
 <section class="flex flex-col space-y-space-md pt-space-xs">
 <div class="flex items-center justify-between">
@@ -344,4 +344,42 @@
       button.classList.add('bg-primary-container', 'text-on-primary');
     });
   });
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(43,24,16,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex items-center justify-around h-16 px-space-sm"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] transition-colors text-secondary font-bold" data-path="inicio" href="#"><span class="material-symbols-outlined text-[24px]">coffee</span><span class="font-label-sm text-[11px] mt-0.5 tracking-tight">Inicio</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-secondary" data-path="explorar" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm text-[11px] mt-0.5 tracking-tight">Explorar</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-secondary" data-path="encuestas" href="#"><span class="material-symbols-outlined text-[24px]">rate_review</span><span class="font-label-sm text-[11px] mt-0.5 tracking-tight">Encuestas</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-secondary" data-path="recompensas" href="#"><span class="material-symbols-outlined text-[24px]">loyalty</span><span class="font-label-sm text-[11px] mt-0.5 tracking-tight">Recompensas</span></a><a class="flex flex-col items-center justify-center min-w-[56px] min-h-[44px] text-on-surface-variant transition-colors hover:text-secondary" data-path="perfil" href="#"><span class="material-symbols-outlined text-[24px]">account_circle</span><span class="font-label-sm text-[11px] mt-0.5 tracking-tight">Perfil</span></a></div></nav></body></html>
+</script></main>
+<style>
+  html {
+    scrollbar-color: #914b2a #f5ede4;
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #914b2a;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f5ede4;
+  }
+
+  main.pt-16 {
+    padding-top: calc(4rem + env(safe-area-inset-top, 0px));
+  }
+</style>
+<nav class="fixed bottom-0 z-50 w-full border-t border-surface-variant bg-surface/90 pb-safe shadow-[0_-4px_20px_rgba(43,24,16,0.05)] backdrop-blur-xl" data-active-classes="text-secondary font-bold">
+<div class="flex h-16 items-center justify-around px-space-xs">
+<a aria-current="page" class="flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center text-secondary transition-colors" data-path="inicio" href="#"><span class="material-symbols-outlined text-[24px]">coffee</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Inicio</span></a>
+<a class="flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center text-on-surface-variant transition-colors hover:text-secondary" data-path="explorar" href="#"><span class="material-symbols-outlined text-[24px]">explore</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Explorar</span></a>
+<a class="flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center text-on-surface-variant transition-colors hover:text-secondary" data-path="encuestas" href="#"><span class="material-symbols-outlined text-[24px]">rate_review</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Encuestas</span></a>
+<a class="flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center text-on-surface-variant transition-colors hover:text-secondary" data-path="recompensas" href="#"><span class="material-symbols-outlined text-[24px]">loyalty</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Recompensas</span></a>
+<a class="flex min-h-[44px] min-w-0 flex-1 flex-col items-center justify-center text-on-surface-variant transition-colors hover:text-secondary" data-path="perfil" href="#"><span class="material-symbols-outlined text-[24px]">account_circle</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Perfil</span></a>
+<form action="{% url 'logout' %}" method="post" class="flex min-h-[44px] min-w-0 flex-1">
+{% csrf_token %}
+<button class="flex w-full flex-col items-center justify-center text-on-surface-variant transition-colors hover:text-secondary" type="submit" aria-label="Cerrar sesión"><span class="material-symbols-outlined text-[24px]">logout</span><span class="font-label-sm mt-0.5 text-center text-[10px]">Salir</span></button>
+</form>
+</div>
+</nav>
+</body></html>
