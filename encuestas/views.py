@@ -2,9 +2,14 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required  # Protege 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import get_user_model, password_validation
+from django.core.exceptions import ValidationError
+from django.core.validators import validate_email
 from utils import limpiar_texto
 from django.http import JsonResponse, QueryDict
 import json
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 from django.views.decorators.csrf import csrf_exempt
 from .models import Profesor
@@ -13,20 +18,20 @@ def index(request):
     # Si el formulario se envió con el botón (método POST)
     error = None
     if request.method == 'POST':
-        usuario_req = request.POST.get('username')
+        usuario_req = request.POST.get('identifier', '').strip()
         clave_req = request.POST.get('password')
         
         
         user = authenticate(request, username=usuario_req, password=clave_req)
         
         if user is not None:
-            login(request, user)  # Inicia la sesión oficialmente en Django
-            return redirect('home')  # Te lleva al Home automáticamente
+            login(request, user)  
+            return redirect('home')  
         error = 'Usuario o contraseña incorrectos.'
             
     return render(request, "code.html", {"error": error})
 
-@login_required  # Si no han iniciado sesión, Django los rebota
+@login_required 
 def home(request):
     return render(request, "home.html") 
 
@@ -34,6 +39,51 @@ def logout_view(request):
     if request.method == 'POST':
         logout(request)
     return redirect('index')
+
+def registro(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('full_name', '').strip()
+        email = request.POST.get('email', '').strip()
+        password = request.POST.get('password', '')
+        confirmacion = request.POST.get('password_confirm', '')
+        error = None
+
+        if not nombre or not email or not password or not confirmacion:
+            error = 'Completa todos los campos para crear tu cuenta.'
+        elif 'terms' not in request.POST:
+            error = 'Debes aceptar los términos para crear tu cuenta.'
+        elif password != confirmacion:
+            error = 'Las contraseñas no coinciden.'
+        else:
+            try:
+                validate_email(email)
+            except ValidationError:
+                error = 'Introduce una dirección de correo válida.'
+            if error is None:
+                User = get_user_model()
+                if User.objects.filter(username__iexact=email).exists():
+                    error = 'Ya existe una cuenta con ese correo.'
+                else:
+                    nuevo_usuario = User(
+                        username=email,
+                        email=email,
+                        first_name=nombre,
+                    )
+                    try:
+                        password_validation.validate_password(password, nuevo_usuario)
+                    except ValidationError as validation_error:
+                        error = ' '.join(validation_error.messages)
+                    else:
+                        nuevo_usuario.set_password(password)
+                        nuevo_usuario.save()
+                        login(request, nuevo_usuario)
+                        return redirect('home')
+
+        return render(request, "registro.html", {"error": error})
+
+    return render(request, "registro.html")
+
+  
 
 """def get (request):
     hola = "B I E N V E N I D O"

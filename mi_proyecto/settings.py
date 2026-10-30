@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mfi61fguqm1msx*gzkve71oat@^*!4sf@+bw0l#7p@&&c79%y4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["practicas-django.onrender.com"]
+ALLOWED_HOSTS = ["practicas-django.onrender.com", "127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -86,18 +86,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+
 ]
 
 

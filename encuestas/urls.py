@@ -6,5 +6,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),  # Nueva ruta para el home
     path('logout/', views.logout_view, name='logout'),
     path('profesor/', views.profesor_view, name='profesor'),
-    path('musico/', views.musico_view, name='musico')
+    path('musico/', views.musico_view, name='musico'),
+    path('registro/', views.registro, name='registro'),  # Ruta para el registro de usuarios
 ]
